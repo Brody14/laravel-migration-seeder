@@ -25,8 +25,8 @@
                     <li> Da: {{ $train->departure_station }} </li>
                     <li> A: {{ $train->arrival_station }} </li>
                     <li> Data: {{date("d-m-Y", strtotime($train->departure_date))}} </li>
-                    <li> Partenza: {{ date('G:i', strtotime($train->departure_time))  }} </li>
-                    <li> Arrivo: {{ date('G:i', strtotime($train->arrival_time)) }} </li>
+                    <li> Partenza: {{ date('H:i', strtotime($train->departure_time))  }} </li>
+                    <li> Arrivo: {{ date('H:i', strtotime($train->arrival_time)) }} </li>
                    
                     @if ($train->on_time)
                         <li> In orario </li>
