@@ -24,14 +24,18 @@
                     <li> <strong>{{ $train->company }}</strong> treno numero {{ $train->train_code}}</li>
                     <li> Da: {{ $train->departure_station }} </li>
                     <li> A: {{ $train->arrival_station }} </li>
-                    <li> Data: {{date("d-m-Y", strtotime($train->departure_date))}} </li>
-                    <li> Partenza: {{ date('H:i', strtotime($train->departure_time))  }} </li>
-                    <li> Arrivo: {{ date('H:i', strtotime($train->arrival_time)) }} </li>
+                    <li> Partenza: {{ date('d-m-Y H:i', strtotime($train->departure_time) ) }} </li>
+                    <li> Arrivo: {{ date('d-m-Y H:i', strtotime($train->arrival_time)) }} </li>
                    
                     @if ($train->on_time)
                         <li> In orario </li>
                     @else
                         <li class="text-danger">In Ritardo</li>
+                    @endif
+
+                    @if ($train->deleted)
+                        <li class="text-danger">Cancellato</li>
+                        
                     @endif
                     
                 </ul>
